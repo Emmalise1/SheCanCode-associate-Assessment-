@@ -47,6 +47,7 @@ sequenceDiagram
 ```
 ---
 
+```mermaid
 flowchart TD
     A[Client Request with Idempotency-Key] --> B{Check Storage}
     
@@ -64,3 +65,5 @@ flowchart TD
     I --> K[End]
     J --> K
     H --> K
+```
+
