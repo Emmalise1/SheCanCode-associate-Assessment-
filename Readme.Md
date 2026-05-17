@@ -2,7 +2,6 @@
 
 A pure Java implementation of a payment idempotency layer that ensures every transaction is processed **exactly once**, even when clients retry requests due to network timeouts.
 
----
 
 ##  Table of Contents
 
@@ -15,7 +14,6 @@ A pure Java implementation of a payment idempotency layer that ensures every tra
 - [Testing](#testing)
 - [Project Structure](#project-structure)
 
----
 
 ##  Architecture Diagram
 
@@ -46,3 +44,23 @@ sequenceDiagram
         Storage-->>Gateway: Found + Hash Mismatch
         Gateway-->>Client: 409 Conflict<br/>"Idempotency key already used<br/>for a different request body"
     end
+
+---
+
+flowchart TD
+    A[Client Request with Idempotency-Key] --> B{Check Storage}
+    
+    B -->|New Key| C[Acquire Lock for Key]
+    B -->|Existing Key| D{Compare Body Hash}
+    
+    C --> E[Simulate Payment Processing<br/>2 second delay]
+    E --> F[Store Response in Cache]
+    F --> G[Release Lock]
+    G --> H[Return 200 OK]
+    
+    D -->|Hash Matches| I[Return Cached Response<br/>X-Cache-Hit: true]
+    D -->|Hash Mismatch| J[Return 409 Conflict<br/>Error Message]
+    
+    I --> K[End]
+    J --> K
+    H --> K
