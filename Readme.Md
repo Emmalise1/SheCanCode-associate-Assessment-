@@ -145,7 +145,9 @@ curl -X POST http://localhost:8080/process-payment -H "Idempotency-Key: test-456
 
 ## Project Structure
 
-![VS Code project files with Main.java]()
+![VS Code project files with Main.java](https://github.com/Emmalise1/SheCanCode-associate-Assessment-/blob/main/Screenshot%20(49).png?raw=true)
+
+
 
 
 
