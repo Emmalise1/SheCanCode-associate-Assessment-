@@ -123,30 +123,24 @@ Result: Payment processed exactly once.
 
 ## Testing
 
+### Test Results
+
+![Terminal test results](Screenshot (50))
+
+### Test Commands
+
 ```bash
 # First request (2 second delay)
-curl -X POST http://localhost:8080/process-payment \
-  -H "Idempotency-Key: test-123" \
-  -H "Content-Type: application/json" \
-  -d '{"amount":100,"currency":"GHS"}'
+curl -X POST http://localhost:8080/process-payment -H "Idempotency-Key: test-123" -H "Content-Type: application/json" -d "{\"amount\":100,\"currency\":\"GHS\"}"
 
 # Duplicate request (instant, X-Cache-Hit: true)
-curl -X POST http://localhost:8080/process-payment \
-  -H "Idempotency-Key: test-123" \
-  -H "Content-Type: application/json" \
-  -d '{"amount":100,"currency":"GHS"}' -v
+curl -X POST http://localhost:8080/process-payment -H "Idempotency-Key: test-123" -H "Content-Type: application/json" -d "{\"amount\":100,\"currency\":\"GHS\"}" -v
 
 # Conflict (same key, different amount)
-curl -X POST http://localhost:8080/process-payment \
-  -H "Idempotency-Key: test-123" \
-  -H "Content-Type: application/json" \
-  -d '{"amount":500,"currency":"GHS"}'
+curl -X POST http://localhost:8080/process-payment -H "Idempotency-Key: test-123" -H "Content-Type: application/json" -d "{\"amount\":500,\"currency\":\"GHS\"}"
 
 # New key (normal processing)
-curl -X POST http://localhost:8080/process-payment \
-  -H "Idempotency-Key: test-456" \
-  -H "Content-Type: application/json" \
-  -d '{"amount":50,"currency":"GHS"}'
+curl -X POST http://localhost:8080/process-payment -H "Idempotency-Key: test-456" -H "Content-Type: application/json" -d "{\"amount\":50,\"currency\":\"GHS\"}"
 
 
 
