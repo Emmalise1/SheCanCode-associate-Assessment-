@@ -46,24 +46,15 @@ sequenceDiagram
     end
 ```
 ---
+## Setup Instructions
 
-```mermaid
-flowchart TD
-    A[Client Request with Idempotency-Key] --> B{Check Storage}
-    
-    B -->|New Key| C[Acquire Lock for Key]
-    B -->|Existing Key| D{Compare Body Hash}
-    
-    C --> E[Simulate Payment Processing<br/>2 second delay]
-    E --> F[Store Response in Cache]
-    F --> G[Release Lock]
-    G --> H[Return 200 OK]
-    
-    D -->|Hash Matches| I[Return Cached Response<br/>X-Cache-Hit: true]
-    D -->|Hash Mismatch| J[Return 409 Conflict<br/>Error Message]
-    
-    I --> K[End]
-    J --> K
-    H --> K
+```bash
+git clone https://github.com/Emmalise1/SheCanCode-associate-Assessment-.git
+cd SheCanCode-associate-Assessment-
+javac -d . src/com/igirepay/*.java
+java com.igirepay.Main
 ```
+Server runs on http://localhost:8080
+
+
 
