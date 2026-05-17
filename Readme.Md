@@ -105,7 +105,7 @@ curl -X POST http://localhost:8080/process-payment \
 | Request body hashing | Detects key misuse for different payloads |
 | 24-hour TTL | Prevents memory leaks |
 
-## Developer's Choice
+## Developer's Choice Feature
 
 **24-Hour TTL Expiration**
 
