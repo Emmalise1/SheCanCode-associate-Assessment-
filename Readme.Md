@@ -111,6 +111,18 @@ curl -X POST http://localhost:8080/process-payment \
 
 Idempotency keys expire after 24 hours and are automatically cleaned up by a background thread. This prevents memory leaks and allows key reuse after a safe window.
 
+## Bonus: Race Condition Handling
+
+When two identical requests arrive simultaneously:
+
+- Request A acquires the lock and processes payment
+- Request B waits
+- Request B receives cached response from Request A
+
+Result: Payment processed exactly once.
+
+
+
 
 
 
