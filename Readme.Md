@@ -141,6 +141,12 @@ curl -X POST http://localhost:8080/process-payment -H "Idempotency-Key: test-123
 
 # New key (normal processing)
 curl -X POST http://localhost:8080/process-payment -H "Idempotency-Key: test-456" -H "Content-Type: application/json" -d "{\"amount\":50,\"currency\":\"GHS\"}"
+```
+
+## Project Structure
+
+![VS Code project files with Main.java]()
+
 
 
 
