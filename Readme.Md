@@ -125,7 +125,7 @@ Result: Payment processed exactly once.
 
 ### Test Results
 
-![Terminal test results](Screenshot (50))
+![Terminal test results](https://github.com/Emmalise1/SheCanCode-associate-Assessment-/blob/main/Screenshot%20(50).png?raw=true)
 
 ### Test Commands
 
