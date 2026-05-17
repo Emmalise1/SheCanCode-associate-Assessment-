@@ -54,7 +54,8 @@ cd SheCanCode-associate-Assessment-
 javac -d . src/com/igirepay/*.java
 java com.igirepay.Main
 ```
-Server runs on http://localhost:8080
+> Server runs on `http://localhost:8080`
+
 
 
 
