@@ -56,6 +56,44 @@ java com.igirepay.Main
 ```
 > Server runs on `http://localhost:8080`
 
+## API Documentation
+
+**Endpoint:** `POST /process-payment`
+
+**Headers:**
+
+| Header | Required |
+|--------|----------|
+| `Idempotency-Key` | Yes |
+| `Content-Type` | Yes |
+
+**Request Body:**
+
+```json
+{
+    "amount": 100,
+    "currency": "GHS"
+}
+
+```
+**Responses:**
+
+| Status Code | Scenario | Header |
+|-------------|----------|--------|
+| 200 OK | First request | - |
+| 200 OK | Duplicate request | `X-Cache-Hit: true` |
+| 409 Conflict | Same key, different body | - |
+
+**Example:**
+
+```bash
+curl -X POST http://localhost:8080/process-payment \
+  -H "Idempotency-Key: test-123" \
+  -H "Content-Type: application/json" \
+  -d '{"amount":100,"currency":"GHS"}'
+
+
+
 
 
 
