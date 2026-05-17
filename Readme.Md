@@ -4,7 +4,7 @@ A pure Java implementation of a payment idempotency layer that ensures every tra
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Architecture Diagram](#architecture-diagram)
 - [Setup Instructions](#setup-instructions)
@@ -17,7 +17,7 @@ A pure Java implementation of a payment idempotency layer that ensures every tra
 
 ---
 
-## 🏗️ Architecture Diagram
+##  Architecture Diagram
 
 ```mermaid
 sequenceDiagram
