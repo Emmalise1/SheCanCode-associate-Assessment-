@@ -44,7 +44,7 @@ sequenceDiagram
         Storage-->>Gateway: Found + Hash Mismatch
         Gateway-->>Client: 409 Conflict<br/>"Idempotency key already used<br/>for a different request body"
     end
-
+```
 ---
 
 flowchart TD
