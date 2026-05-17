@@ -147,21 +147,6 @@ curl -X POST http://localhost:8080/process-payment -H "Idempotency-Key: test-456
 
 ![VS Code project files with Main.java](https://github.com/Emmalise1/SheCanCode-associate-Assessment-/blob/main/Screenshot%20(49).png?raw=true)
 
-src/
-
-└── com/
-
-    └── igirepay/
-
-        ├── IdempotencyRecord.java
-
-        ├── PaymentRequest.java
-
-        ├── IdempotencyService.java
-
-        ├── PaymentHandler.java
-
-        └── Main.java
 
 
 
