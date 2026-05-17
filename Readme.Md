@@ -92,6 +92,19 @@ curl -X POST http://localhost:8080/process-payment \
   -H "Content-Type: application/json" \
   -d '{"amount":100,"currency":"GHS"}'
 
+```
+
+## Design Decisions
+
+| Decision | Why |
+|----------|-----|
+| Pure Java + built-in HttpServer | No frameworks, demonstrates fundamentals |
+| ConcurrentHashMap | Thread-safe storage |
+| ReentrantLock per key | Prevents race conditions |
+| 2-second delay | Simulates real payment processing |
+| Request body hashing | Detects key misuse for different payloads |
+| 24-hour TTL | Prevents memory leaks |
+
 
 
 
